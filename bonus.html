@@ -5,21 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KING 2026 – Programme Annuel</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
 
     :root {
-      --bg-body: #f9fafb;
+      --bg-body: #f8fafc;
       --card-bg: #ffffff;
-      --text-primary: #111827;
-      --text-secondary: #4b5563;
-      --text-tertiary: #6b7280;
-      --accent-primary: #1d4ed8;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-tertiary: #64748b;
+      --accent-primary: #2563eb;
       --accent-secondary: #3b82f6;
+      --accent-gradient: linear-gradient(135deg, #2563eb, #3b82f6);
       --success: #10b981;
-      --border-color: #e5e7eb;
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-      --radius: 20px;
+      --success-light: #d1fae5;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
@@ -38,72 +44,123 @@
     }
 
     .container {
-      max-width: 768px;
+      max-width: 800px;
       margin: 0 auto;
       background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: var(--shadow-md);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
       border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-gradient);
+      z-index: 2;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     .header h1 {
-      font-size: 2.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       color: var(--text-primary);
+      letter-spacing: -0.5px;
     }
 
     .header .subtitle {
       font-size: 1.125rem;
       color: var(--text-secondary);
       font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .hero-image {
       width: 100%;
-      max-width: 400px;
-      height: 500px;
+      max-width: 420px;
+      height: 280px;
       object-fit: cover;
-      margin: 24px auto;
-      border-radius: 16px;
+      margin: 32px auto;
+      border-radius: var(--radius-md);
       display: block;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .hero-image:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
 
     .progress-container {
       background: var(--card-bg);
-      border-radius: 16px;
-      padding: 20px;
-      margin: 28px 0;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin: 36px 0;
       border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
     }
 
     .progress-title {
       font-weight: 600;
       font-size: 1.25rem;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .progress-bar {
       width: 100%;
-      height: 10px;
-      background: #f3f4f6;
-      border-radius: 5px;
+      height: 12px;
+      background: #f1f5f9;
+      border-radius: 6px;
       overflow: hidden;
+      margin-bottom: 8px;
+      position: relative;
     }
 
     .progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+      background: var(--accent-gradient);
       width: 0%;
-      transition: width 1s ease;
+      border-radius: 6px;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
 
     .progress-text {
@@ -111,49 +168,108 @@
       justify-content: space-between;
       font-size: 0.875rem;
       color: var(--text-tertiary);
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .ritual-note {
-      background: #f0f9ff;
-      border-left: 4px solid var(--accent-secondary);
-      padding: 18px;
-      border-radius: 0 12px 12px 0;
-      margin: 28px 0;
-      font-style: italic;
+      background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+      border-left: 4px solid var(--accent-primary);
+      padding: 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 36px 0;
       color: var(--text-secondary);
       font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ritual-note::before {
+      content: '💫';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      opacity: 0.2;
+    }
+
+    .ritual-note strong {
+      color: var(--text-primary);
+      font-weight: 600;
     }
 
     .month-card {
       background: var(--card-bg);
-      border-radius: 18px;
-      padding: 26px;
-      margin-bottom: 32px;
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-bottom: 28px;
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .month-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .month-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-secondary);
+    }
+
+    .month-card:hover::before {
+      opacity: 1;
     }
 
     .month-card.locked {
-      opacity: 0.5;
+      opacity: 0.6;
       pointer-events: none;
-      filter: grayscale(0.8);
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
     }
 
     .month-card.completed {
       border-color: var(--success);
-      background: #f0fdf4;
+      background: var(--success-light);
+    }
+
+    .month-card.completed .month-title {
+      color: #065f46;
     }
 
     .month-title {
-      font-size: 1.375rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
       color: var(--text-primary);
       display: flex;
       align-items: center;
       gap: 12px;
+    }
+
+    .month-title .emoji {
+      font-size: 1.4rem;
+    }
+
+    .month-title .lock-icon {
+      margin-left: auto;
+      color: var(--text-tertiary);
+      font-size: 1rem;
+    }
+
+    .pillar {
+      margin-bottom: 20px;
     }
 
     .pillar-title {
@@ -172,7 +288,7 @@
     .sport-sequence {
       color: var(--text-secondary);
       font-size: 0.95rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .objectives-list,
@@ -183,8 +299,9 @@
 
     .objectives-list li,
     .habits-list li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       position: relative;
+      padding-left: 4px;
     }
 
     .objectives-list li::before {
@@ -199,80 +316,144 @@
       content: '⚠';
       position: absolute;
       left: -20px;
+      color: #f59e0b;
+    }
+
+    .relaxation-exercise {
+      background: linear-gradient(135deg, #f0f9ff, #f8fafc);
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #dbeafe;
+      margin: 16px 0;
     }
 
     .sport-sequence {
-      background: #f9fafb;
-      padding: 14px;
-      border-radius: 12px;
-      font-family: monospace;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      font-family: 'Courier New', monospace;
       border: 1px dashed var(--border-color);
-      margin-top: 8px;
+      margin-top: 10px;
+      font-size: 0.9rem;
     }
 
     .time-block {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
-      margin-top: 12px;
+      margin-top: 16px;
     }
 
     .time-slot {
-      background: #f3f4f6;
-      padding: 10px;
-      border-radius: 10px;
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      padding: 14px;
+      border-radius: var(--radius-sm);
       font-size: 0.9rem;
       color: var(--text-primary);
-      flex: 1 1 45%;
       text-align: center;
       font-weight: 500;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .time-slot:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--accent-secondary);
     }
 
     .completion-check {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-top: 24px;
+      gap: 14px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border-color);
     }
 
     .completion-check input {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       accent-color: var(--accent-primary);
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
     .completion-check label {
-      color: var(--text-tertiary);
+      color: var(--text-secondary);
       cursor: pointer;
       font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .completion-check input:checked + label {
+      color: var(--success);
+      font-weight: 600;
     }
 
     .footer {
       text-align: center;
-      margin-top: 40px;
-      padding-top: 24px;
+      margin-top: 48px;
+      padding-top: 28px;
       border-top: 1px solid var(--border-color);
       color: var(--text-tertiary);
       font-size: 0.95rem;
+      line-height: 1.8;
     }
 
     .footer strong {
       color: var(--text-primary);
+      font-weight: 600;
     }
 
-    @media (max-width: 600px) {
+    .success-animation {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 70%);
+      border-radius: 50%;
+      z-index: 1000;
+      pointer-events: none;
+      animation: success-pop 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes success-pop {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+    }
+
+    .locked-message {
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-top: 16px;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
       .container {
-        padding: 20px;
+        padding: 24px;
+        border-radius: var(--radius-md);
       }
       .header h1 {
-        font-size: 1.875rem;
+        font-size: 2rem;
       }
       .hero-image {
-        height: auto;
-        max-height: 400px;
+        height: 200px;
       }
-      .time-slot {
-        flex: 1 1 100%;
+      .month-card {
+        padding: 24px;
+      }
+      .time-block {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -365,65 +546,96 @@
       <div class="month-title">
         <span class="emoji">🦁</span> Mars 2026 : La Discipline Sereine <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Ce mois sera déverrouillé lorsque tu auras complété Février avec intention et bienveillance.</div>
+      <div class="locked-message">
+        ⏳ Ce mois sera déverrouillé lorsque tu auras complété Février avec intention et bienveillance.
+      </div>
     </div>
+    
     <div class="month-card locked" id="april">
       <div class="month-title">
         <span class="emoji">🌱</span> Avril 2026 : Racines & Épanouissement <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Mars.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Mars.
+      </div>
     </div>
+    
     <div class="month-card locked" id="may">
       <div class="month-title">
         <span class="emoji">🌸</span> Mai 2026 : Floraison & Abondance <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Avril.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Avril.
+      </div>
     </div>
+    
     <div class="month-card locked" id="june">
       <div class="month-title">
         <span class="emoji">🌞</span> Juin 2026 : Lumière & Clarté <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Mai.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Mai.
+      </div>
     </div>
+    
     <div class="month-card locked" id="july">
       <div class="month-title">
         <span class="emoji">🌊</span> Juillet 2026 : Fluidité & Lâcher-Prise <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Juin.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Juin.
+      </div>
     </div>
+    
     <div class="month-card locked" id="august">
       <div class="month-title">
         <span class="emoji">⛰️</span> Août 2026 : Hauteur & Perspective <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Juillet.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Juillet.
+      </div>
     </div>
+    
     <div class="month-card locked" id="september">
       <div class="month-title">
         <span class="emoji">📚</span> Septembre 2026 : Intégration & Nouveaux Départs <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Août.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Août.
+      </div>
     </div>
+    
     <div class="month-card locked" id="october">
       <div class="month-title">
         <span class="emoji">🍂</span> Octobre 2026 : Transformation & Lâcher les Feuilles Mortes <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Septembre.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Septembre.
+      </div>
     </div>
+    
     <div class="month-card locked" id="november">
       <div class="month-title">
         <span class="emoji">🕯️</span> Novembre 2026 : Recueillement & Gratitude Profonde <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Octobre.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Octobre.
+      </div>
     </div>
+    
     <div class="month-card locked" id="december">
       <div class="month-title">
         <span class="emoji">🎄</span> Décembre 2026 : Célébration & Plénitude <span class="lock-icon">🔒</span>
       </div>
-      <div class="pillar-content">Disponible après avoir complété Novembre.</div>
+      <div class="locked-message">
+        ⏳ Disponible après avoir complété Novembre.
+      </div>
     </div>
 
     <div class="footer">
       🌿 Créé avec intention par <strong>KING 2026 Team</strong> – Pour l'homme universel qui choisit d'avancer avec conscience, curiosité et cœur.
+      <br>
+      <small style="color: #94a3b8; margin-top: 8px; display: block;">Ton progrès est sauvegardé automatiquement.</small>
     </div>
   </div>
 
@@ -441,51 +653,85 @@
       december: { emoji: "🎄", title: "Décembre 2026 : Célébration & Plénitude", intention: "Célébrer l'année écoulée et entrer dans l'hiver avec un sentiment d'accomplissement et de paix.", objectives: ["Personnel : Réaliser un rituel de clôture d'année symbolique", "Famille & proches : Organiser une célébration des petites et grandes victoires familiales", "Mission : Finaliser l'année en beauté et préparer un repos mérité"], release: "Je libère tout sentiment d'inachevé. Je reconnais la perfection du chemin parcouru, avec ses hauts et ses bas.", relaxation: "Méditation de la plénitude. Sentir chaque cellule de son corps remplie de la sagesse accumulée pendant l'année.", habits: ["Se précipiter vers les objectifs de l'année suivante sans clore la présente", "Minimiser ses accomplissements", "Négliger les temps de repos et de régénération"], sport: "• Danses festives et joyeuses\n• Promenades hivernales contemplatives\n• Yoga doux pour intégrer l'année", times: ["Pour moi : 8h", "Avec mes proches : 7h", "Dans mon cercle : 3h", "Pour ma mission : 2h"] }
     };
 
+    // ========== SYSTÈME DE DÉVERROUILLAGE FONCTIONNEL ==========
     let completedMonths = [];
+    const monthOrder = ['february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
+    // Charger la progression depuis localStorage
     function loadProgress() {
       const saved = localStorage.getItem('king2026Progress');
-      if (saved) completedMonths = JSON.parse(saved);
+      completedMonths = saved ? JSON.parse(saved) : [];
+      console.log('Progression chargée:', completedMonths);
     }
 
+    // Sauvegarder la progression
     function saveProgress() {
       localStorage.setItem('king2026Progress', JSON.stringify(completedMonths));
+      console.log('Progression sauvegardée:', completedMonths);
     }
 
+    // Fonction principale pour compléter un mois
     function completeMonth(monthId) {
-      const checkbox = document.getElementById(`complete${monthId.charAt(0).toUpperCase() + monthId.slice(1)}`);
+      const checkbox = document.getElementById(`complete${capitalizeFirst(monthId)}`);
+      
+      // Vérifier si la checkbox est cochée
       if (!checkbox || !checkbox.checked) return;
-
+      
+      // Si le mois n'est pas déjà complété
       if (!completedMonths.includes(monthId)) {
+        // Ajouter aux mois complétés
         completedMonths.push(monthId);
         saveProgress();
-
+        
+        // Animation de succès
+        showSuccessAnimation();
+        
+        // Marquer le mois comme complété
         const monthCard = document.getElementById(monthId);
         if (monthCard) {
           monthCard.classList.add('completed');
           const label = checkbox.nextElementSibling;
-          if (label) label.textContent = '✅ Mois complété avec succès';
+          if (label) {
+            label.textContent = '✅ Mois complété avec succès';
+          }
           checkbox.disabled = true;
         }
-
+        
+        // Déverrouiller le mois suivant
         unlockNextMonth(monthId);
+        
+        // Mettre à jour la progression
         updateProgress();
+        
+        console.log(`Mois ${monthId} complété. Mois suivants déverrouillés.`);
       }
     }
 
+    // Déverrouiller le mois suivant
     function unlockNextMonth(completedMonthId) {
-      const order = ['february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-      const i = order.indexOf(completedMonthId);
-      if (i !== -1 && i < order.length - 1) {
-        const nextId = order[i + 1];
-        const card = document.getElementById(nextId);
-        if (card && card.classList.contains('locked')) {
-          buildMonthCard(nextId);
-          card.classList.remove('locked');
+      const currentIndex = monthOrder.indexOf(completedMonthId);
+      
+      if (currentIndex !== -1 && currentIndex < monthOrder.length - 1) {
+        const nextMonthId = monthOrder[currentIndex + 1];
+        const nextMonthCard = document.getElementById(nextMonthId);
+        
+        if (nextMonthCard && nextMonthCard.classList.contains('locked')) {
+          // Construire le contenu du mois suivant
+          buildMonthCard(nextMonthId);
+          // Retirer la classe locked
+          nextMonthCard.classList.remove('locked');
+          // Ajouter un effet visuel
+          nextMonthCard.style.animation = 'none';
+          setTimeout(() => {
+            nextMonthCard.style.animation = 'unlockEffect 0.6s ease';
+          }, 10);
+          
+          console.log(`Mois ${nextMonthId} déverrouillé.`);
         }
       }
     }
 
+    // Construire le contenu d'un mois
     function buildMonthCard(monthId) {
       const data = monthsData[monthId];
       if (!data) return;
@@ -493,17 +739,21 @@
       const card = document.getElementById(monthId);
       if (!card) return;
 
-      let objHtml = '';
-      data.objectives.forEach(o => {
-        const parts = o.split(' : ');
-        objHtml += `<li><strong>${parts[0]}</strong> : ${parts[1]}</li>`;
+      let objectivesHtml = '';
+      data.objectives.forEach(obj => {
+        const parts = obj.split(' : ');
+        if (parts.length === 2) {
+          objectivesHtml += `<li><strong>${parts[0]}</strong> : ${parts[1]}</li>`;
+        } else {
+          objectivesHtml += `<li>${obj}</li>`;
+        }
       });
 
-      let habHtml = data.habits.map(h => `<li>${h}</li>`).join('');
-      let timeHtml = data.times.map(t => `<div class="time-slot">${t}</div>`).join('');
+      let habitsHtml = data.habits.map(habit => `<li>${habit}</li>`).join('');
+      let timesHtml = data.times.map(time => `<div class="time-slot">${time}</div>`).join('');
 
-      const monthNameCap = monthId.charAt(0).toUpperCase() + monthId.slice(1);
-      const labels = {
+      const monthNameCap = capitalizeFirst(monthId);
+      const completionLabels = {
         february: "J'ai vécu ce mois avec présence et bienveillance",
         march: "J'ai honoré ce mois avec régularité et douceur",
         april: "J'ai cultivé mes ressources avec gratitude",
@@ -518,61 +768,140 @@
       };
 
       card.innerHTML = `
-        <div class="month-title"><span class="emoji">${data.emoji}</span> ${data.title}</div>
-        <div class="pillar"><div class="pillar-title"><span>🎯</span> Intention mensuelle</div><div class="pillar-content">${data.intention}</div></div>
-        <div class="pillar"><div class="pillar-title"><span>📍</span> Objectifs stratégiques</div><ul class="objectives-list">${objHtml}</ul></div>
-        <div class="pillar"><div class="pillar-title"><span>🕊️</span> Lâcher-prise</div><div class="pillar-content">${data.release}</div></div>
-        <div class="pillar"><div class="pillar-title"><span>🌀</span> Exercice de relaxation intégré</div><div class="relaxation-exercise">${data.relaxation}</div></div>
-        <div class="pillar"><div class="pillar-title"><span>⚠️</span> Habitudes à observer avec bienveillance</div><ul class="habits-list">${habHtml}</ul></div>
-        <div class="pillar"><div class="pillar-title"><span>💪</span> Mouvement & vitalité</div><div class="sport-sequence">${data.sport}</div></div>
-        <div class="pillar"><div class="pillar-title"><span>⏳</span> Temps sacrés hebdomadaires</div><div class="time-block">${timeHtml}</div></div>
+        <div class="month-title">
+          <span class="emoji">${data.emoji}</span> ${data.title}
+        </div>
+        <div class="pillar">
+          <div class="pillar-title"><span>🎯</span> Intention mensuelle</div>
+          <div class="pillar-content">${data.intention}</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title"><span>📍</span> Objectifs stratégiques</div>
+          <ul class="objectives-list">${objectivesHtml}</ul>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title"><span>🕊️</span> Lâcher-prise</div>
+          <div class="pillar-content">${data.release}</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title"><span>🌀</span> Exercice de relaxation intégré</div>
+          <div class="relaxation-exercise">${data.relaxation}</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title"><span>⚠️</span> Habitudes à observer avec bienveillance</div>
+          <ul class="habits-list">${habitsHtml}</ul>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title"><span>💪</span> Mouvement & vitalité</div>
+          <div class="sport-sequence">${data.sport}</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title"><span>⏳</span> Temps sacrés hebdomadaires</div>
+          <div class="time-block">${timesHtml}</div>
+        </div>
         <div class="completion-check">
           <input type="checkbox" id="complete${monthNameCap}" onchange="completeMonth('${monthId}')">
-          <label for="complete${monthNameCap}">${labels[monthId]}</label>
+          <label for="complete${monthNameCap}">${completionLabels[monthId] || "J'ai complété ce mois avec intention"}</label>
         </div>
       `;
     }
 
+    // Mettre à jour la barre de progression
     function updateProgress() {
-      const total = 11;
+      const total = 11; // février à décembre
       const progress = (completedMonths.length / total) * 100;
-      document.getElementById('progressFill').style.width = `${progress}%`;
-      document.getElementById('progressPercentage').textContent = `${Math.round(progress)}%`;
+      const fill = document.getElementById('progressFill');
+      const percentage = document.getElementById('progressPercentage');
+      
+      if (fill && percentage) {
+        fill.style.width = `${progress}%`;
+        percentage.textContent = `${Math.round(progress)}%`;
+      }
     }
 
+    // Animation de succès
+    function showSuccessAnimation() {
+      const anim = document.createElement('div');
+      anim.className = 'success-animation';
+      document.body.appendChild(anim);
+      setTimeout(() => anim.remove(), 1000);
+    }
+
+    // Helper: Capitaliser la première lettre
+    function capitalizeFirst(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    // Initialiser l'application
     function initializeApp() {
       loadProgress();
       updateProgress();
-
-      // Restaurer l'état des mois complétés
-      completedMonths.forEach(id => {
-        const card = document.getElementById(id);
-        const name = id.charAt(0).toUpperCase() + id.slice(1);
-        const cb = document.getElementById(`complete${name}`);
-        if (card) card.classList.add('completed');
-        if (cb) {
-          cb.checked = true;
-          cb.disabled = true;
-          const lbl = cb.nextElementSibling;
-          if (lbl) lbl.textContent = '✅ Mois complété avec succès';
+      
+      console.log('Initialisation avec mois complétés:', completedMonths);
+      
+      // Pour chaque mois complété, restaurer son état
+      completedMonths.forEach(monthId => {
+        const card = document.getElementById(monthId);
+        const checkboxId = `complete${capitalizeFirst(monthId)}`;
+        
+        // Marquer la carte comme complétée
+        if (card) {
+          card.classList.add('completed');
         }
       });
-
-      // Déverrouiller les mois suivants déjà débloqués
-      const order = ['february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
-      completedMonths.forEach(id => {
-        const i = order.indexOf(id);
-        if (i !== -1 && i < order.length - 1) {
-          const next = order[i + 1];
-          const nextCard = document.getElementById(next);
-          if (nextCard && nextCard.classList.contains('locked')) {
-            buildMonthCard(next);
-            nextCard.classList.remove('locked');
+      
+      // Déverrouiller et construire tous les mois qui devraient être déverrouillés
+      let lastUnlockedIndex = -1;
+      
+      // Trouver le dernier mois complété
+      completedMonths.forEach(monthId => {
+        const index = monthOrder.indexOf(monthId);
+        if (index > lastUnlockedIndex) {
+          lastUnlockedIndex = index;
+        }
+      });
+      
+      // Déverrouiller tous les mois jusqu'au suivant du dernier complété
+      for (let i = 0; i <= Math.min(lastUnlockedIndex + 1, monthOrder.length - 1); i++) {
+        const monthId = monthOrder[i];
+        
+        // Février est toujours visible
+        if (monthId === 'february') continue;
+        
+        const card = document.getElementById(monthId);
+        if (card && card.classList.contains('locked')) {
+          buildMonthCard(monthId);
+          card.classList.remove('locked');
+          
+          // Si ce mois est complété, cocher la checkbox
+          if (completedMonths.includes(monthId)) {
+            const checkbox = document.getElementById(`complete${capitalizeFirst(monthId)}`);
+            if (checkbox) {
+              checkbox.checked = true;
+              checkbox.disabled = true;
+              const label = checkbox.nextElementSibling;
+              if (label) {
+                label.textContent = '✅ Mois complété avec succès';
+              }
+            }
           }
         }
-      });
+      }
+      
+      console.log('Application initialisée avec succès');
     }
 
+    // Ajouter l'animation de déverrouillage au CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes unlockEffect {
+        0% { transform: translateY(10px); opacity: 0.7; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Initialiser au chargement
     document.addEventListener('DOMContentLoaded', initializeApp);
   </script>
 </body>
