@@ -1,908 +1,1179 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KING 2026 – Programme Annuel</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>KING 2026 – Programme Annuel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
-    :root {
-      --bg-body: #f8fafc;
-      --card-bg: #ffffff;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-tertiary: #64748b;
-      --accent-primary: #2563eb;
-      --accent-secondary: #3b82f6;
-      --accent-gradient: linear-gradient(135deg, #2563eb, #3b82f6);
-      --success: #10b981;
-      --success-light: #d1fae5;
-      --border-color: #e2e8f0;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
-      --radius-sm: 12px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        :root {
+            --deep-blue: #0a192f;
+            --midnight-blue: #112240;
+            --light-blue: #64ffda;
+            --soft-blue: #8892b0;
+            --pale-bg: #f8fafc;
+            --white: #e6f1ff;
+            --accent-gold: #ffd700;
+            --accent-teal: #00d4aa;
+            --pulse-color: rgba(100, 255, 218, 0.3);
+            --success-green: #00c9a7;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-body);
-      color: var(--text-primary);
-      line-height: 1.6;
-      padding: 24px;
-      min-height: 100vh;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--pale-bg) 0%, #e6f0ff 50%, #d4e7ff 100%);
+            color: var(--midnight-blue);
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+        }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border-color);
-      position: relative;
-      overflow: hidden;
-    }
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 28px;
+            border: 1px solid rgba(10, 25, 47, 0.1);
+            padding: 40px;
+            box-shadow: 0 25px 70px rgba(10, 25, 47, 0.15);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--accent-gradient);
-      z-index: 2;
-    }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--pulse-color) 0%, transparent 70%);
+            opacity: 0;
+            animation: pulse-glow 8s infinite ease-in-out;
+            z-index: 0;
+        }
 
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 1;
-    }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 0.4; transform: scale(1.1); }
+        }
 
-    .header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.75rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-      letter-spacing: -0.5px;
-    }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(10, 25, 47, 0.08);
+            position: relative;
+            z-index: 1;
+        }
 
-    .header .subtitle {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      font-weight: 400;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+        .header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--deep-blue), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
 
-    .hero-image {
-      width: 100%;
-      max-width: 420px;
-      height: 280px;
-      object-fit: cover;
-      margin: 32px auto;
-      border-radius: var(--radius-md);
-      display: block;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border-color);
-      transition: var(--transition);
-    }
+        .header .subtitle {
+            color: var(--soft-blue);
+            font-size: 1.1em;
+            font-weight: 400;
+            max-width: 90%;
+            margin: 0 auto 25px auto;
+        }
 
-    .hero-image:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
+        /* Image ajoutée sous le titre */
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            object-fit: cover;
+            margin: 0 auto 25px auto;
+            border-radius: 20px;
+            display: block;
+            box-shadow: 0 15px 35px rgba(10, 25, 47, 0.15);
+            border: 1px solid rgba(10, 25, 47, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .progress-container {
-      background: var(--card-bg);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      margin: 36px 0;
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-    }
+        .hero-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.2);
+        }
 
-    .progress-title {
-      font-weight: 600;
-      font-size: 1.25rem;
-      margin-bottom: 16px;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .ritual-note {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.05) 0%, rgba(100, 255, 218, 0.08) 100%);
+            border-left: 4px solid var(--accent-teal);
+            padding: 22px;
+            border-radius: 0 16px 16px 0;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--deep-blue);
+            font-size: 1em;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 20px rgba(0, 212, 170, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-    .progress-bar {
-      width: 100%;
-      height: 12px;
-      background: #f1f5f9;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: 8px;
-      position: relative;
-    }
+        .ritual-note:hover {
+            transform: translateX(5px);
+        }
 
-    .progress-fill {
-      height: 100%;
-      background: var(--accent-gradient);
-      width: 0%;
-      border-radius: 6px;
-      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
+        .month-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(10, 25, 47, 0.1);
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
 
-    .progress-fill::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      animation: shimmer 2s infinite;
-    }
+        .month-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--light-blue), var(--accent-teal));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
 
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
+        .month-card:hover::before {
+            transform: scaleX(1);
+        }
 
-    .progress-text {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.875rem;
-      color: var(--text-tertiary);
-      margin-top: 8px;
-    }
+        .month-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(10, 25, 47, 0.12);
+        }
 
-    .ritual-note {
-      background: linear-gradient(135deg, #eff6ff, #f0f9ff);
-      border-left: 4px solid var(--accent-primary);
-      padding: 24px;
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      margin: 36px 0;
-      color: var(--text-secondary);
-      font-size: 1rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
+        .month-card.locked {
+            opacity: 0.6;
+            filter: grayscale(0.3);
+            pointer-events: none;
+        }
 
-    .ritual-note::before {
-      content: '💫';
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.5rem;
-      opacity: 0.2;
-    }
+        .month-card.completed {
+            border-color: var(--success-green);
+            background: linear-gradient(135deg, rgba(0, 201, 167, 0.05), white);
+        }
 
-    .ritual-note strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
+        .month-title {
+            color: var(--deep-blue);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .month-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-md);
-      padding: 32px;
-      margin-bottom: 28px;
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
+        .month-title .emoji {
+            font-size: 1.3em;
+        }
 
-    .month-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--accent-gradient);
-      opacity: 0;
-      transition: var(--transition);
-    }
+        .month-title .lock-icon {
+            margin-left: auto;
+            color: var(--soft-blue);
+            font-size: 0.9em;
+        }
 
-    .month-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent-secondary);
-    }
+        .pillar {
+            margin-bottom: 20px;
+        }
 
-    .month-card:hover::before {
-      opacity: 1;
-    }
+        .pillar-title {
+            font-size: 1em;
+            color: var(--accent-teal);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .month-card.locked {
-      opacity: 0.6;
-      pointer-events: none;
-      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-    }
+        .pillar-content {
+            color: var(--midnight-blue);
+            font-size: 0.96em;
+            line-height: 1.7;
+            padding-left: 8px;
+        }
 
-    .month-card.completed {
-      border-color: var(--success);
-      background: var(--success-light);
-    }
+        .objectives-list, .habits-list {
+            padding-left: 26px;
+            margin-top: 8px;
+        }
 
-    .month-card.completed .month-title {
-      color: #065f46;
-    }
+        .objectives-list li, .habits-list li {
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+        }
 
-    .month-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        .objectives-list li::before {
+            content: '▸';
+            color: var(--light-blue);
+            font-weight: bold;
+            position: absolute;
+            left: -18px;
+        }
 
-    .month-title .emoji {
-      font-size: 1.4rem;
-    }
+        .habits-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: -22px;
+            font-size: 0.9em;
+        }
 
-    .month-title .lock-icon {
-      margin-left: auto;
-      color: var(--text-tertiary);
-      font-size: 1rem;
-    }
+        .relaxation-exercise {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.03) 0%, rgba(100, 255, 218, 0.05) 100%);
+            padding: 18px;
+            border-radius: 14px;
+            margin: 18px 0;
+            border-left: 3px solid var(--light-blue);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .pillar {
-      margin-bottom: 20px;
-    }
+        .relaxation-exercise::after {
+            content: '🌀';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            opacity: 0.2;
+            animation: spin 10s infinite linear;
+        }
 
-    .pillar-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--accent-primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+        @keyframes spin {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
+        }
 
-    .pillar-content,
-    .objectives-list,
-    .habits-list,
-    .sport-sequence {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
+        .breathing-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(10, 25, 47, 0.02);
+            border-radius: 12px;
+        }
 
-    .objectives-list,
-    .habits-list {
-      padding-left: 24px;
-      margin-top: 8px;
-    }
+        .breath-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-teal);
+            border-radius: 50%;
+            animation: breathe 8s infinite ease-in-out;
+            opacity: 0.7;
+        }
 
-    .objectives-list li,
-    .habits-list li {
-      margin-bottom: 10px;
-      position: relative;
-      padding-left: 4px;
-    }
+        @keyframes breathe {
+            0%, 100% { transform: scale(0.7); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
 
-    .objectives-list li::before {
-      content: '→';
-      color: var(--accent-secondary);
-      position: absolute;
-      left: -18px;
-      font-weight: bold;
-    }
+        .breath-label {
+            font-size: 0.9em;
+            color: var(--soft-blue);
+            font-weight: 500;
+        }
 
-    .habits-list li::before {
-      content: '⚠';
-      position: absolute;
-      left: -20px;
-      color: #f59e0b;
-    }
+        .sport-sequence {
+            background: rgba(10, 25, 47, 0.03);
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.92em;
+            color: var(--deep-blue);
+            border: 1px dashed rgba(100, 255, 218, 0.3);
+        }
 
-    .relaxation-exercise {
-      background: linear-gradient(135deg, #f0f9ff, #f8fafc);
-      padding: 18px;
-      border-radius: var(--radius-sm);
-      border: 1px solid #dbeafe;
-      margin: 16px 0;
-    }
+        .time-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
 
-    .sport-sequence {
-      background: #f8fafc;
-      padding: 16px;
-      border-radius: var(--radius-sm);
-      font-family: 'Courier New', monospace;
-      border: 1px dashed var(--border-color);
-      margin-top: 10px;
-      font-size: 0.9rem;
-    }
+        .time-slot {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.05) 0%, rgba(100, 255, 218, 0.1) 100%);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            color: var(--deep-blue);
+            flex: 1 1 45%;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid rgba(10, 25, 47, 0.05);
+            transition: all 0.3s ease;
+        }
 
-    .time-block {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
+        .time-slot:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+        }
 
-    .time-slot {
-      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-      padding: 14px;
-      border-radius: var(--radius-sm);
-      font-size: 0.9rem;
-      color: var(--text-primary);
-      text-align: center;
-      font-weight: 500;
-      border: 1px solid var(--border-color);
-      transition: var(--transition);
-    }
+        .completion-check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
 
-    .time-slot:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-      border-color: var(--accent-secondary);
-    }
+        .completion-check input {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--accent-teal);
+            cursor: pointer;
+        }
 
-    .completion-check {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px dashed var(--border-color);
-    }
+        .completion-check label {
+            color: var(--soft-blue);
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-    .completion-check input {
-      width: 22px;
-      height: 22px;
-      accent-color: var(--accent-primary);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
+        .completion-check input:checked + label {
+            color: var(--success-green);
+            font-weight: 600;
+        }
 
-    .completion-check label {
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: var(--transition);
-    }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--soft-blue);
+            font-size: 0.95em;
+            padding-top: 25px;
+            border-top: 1px solid rgba(10, 25, 47, 0.1);
+            position: relative;
+            z-index: 1;
+        }
 
-    .completion-check input:checked + label {
-      color: var(--success);
-      font-weight: 600;
-    }
+        .footer strong {
+            color: var(--deep-blue);
+            font-weight: 600;
+        }
 
-    .footer {
-      text-align: center;
-      margin-top: 48px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-tertiary);
-      font-size: 0.95rem;
-      line-height: 1.8;
-    }
+        .wow-effect {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0;
+            animation: wow 3s ease-out forwards;
+        }
 
-    .footer strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
+        @keyframes wow {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+            50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.5); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+        }
 
-    .success-animation {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 70%);
-      border-radius: 50%;
-      z-index: 1000;
-      pointer-events: none;
-      animation: success-pop 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
+        .progress-container {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(10, 25, 47, 0.1);
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.05);
+            position: relative;
+            z-index: 1;
+        }
 
-    @keyframes success-pop {
-      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
-    }
+        .progress-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+            color: var(--deep-blue);
+            font-size: 1.2em;
+            font-weight: 600;
+        }
 
-    .locked-message {
-      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-      border: 1px dashed var(--border-color);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      margin-top: 16px;
-      text-align: center;
-      color: var(--text-tertiary);
-      font-size: 0.9rem;
-    }
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(10, 25, 47, 0.05);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
 
-    @media (max-width: 640px) {
-      .container {
-        padding: 24px;
-        border-radius: var(--radius-md);
-      }
-      .header h1 {
-        font-size: 2rem;
-      }
-      .hero-image {
-        height: 200px;
-      }
-      .month-card {
-        padding: 24px;
-      }
-      .time-block {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-teal), var(--light-blue));
+            width: 0%;
+            border-radius: 6px;
+            transition: width 1s ease;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            color: var(--soft-blue);
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+                border-radius: 20px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .hero-image {
+                max-width: 100%;
+                height: 400px;
+            }
+            .month-card {
+                padding: 22px;
+            }
+            .time-slot {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container" id="mainContainer">
-    <div class="header">
-      <h1>KING 2026</h1>
-      <div class="subtitle">Un voyage mensuel vers l'alignement, la sérénité et l'accomplissement universel</div>
-      <img src="assets/images/jeglow.png" alt="KING 2026 – Image inspirante" class="hero-image" />
-    </div>
-
-    <div class="progress-container">
-      <div class="progress-title">📈 Progression annuelle</div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <div class="progress-text">
-        <span>Début</span>
-        <span id="progressPercentage">0%</span>
-        <span>Complété</span>
-      </div>
-    </div>
-
-    <div class="ritual-note">
-      💫 <strong>Note d'ouverture</strong> : Ce programme est conçu comme un compagnon bienveillant. Chaque mois se dévoile seulement lorsque le précédent est complété. Prends le temps de vivre chaque étape pleinement, sans pression, avec curiosité et douceur envers toi-même.
-    </div>
-
-    <!-- FÉVRIER – visible par défaut -->
-    <div class="month-card" id="february">
-      <div class="month-title">
-        <span class="emoji">💙</span> Février 2026 : La Douceur Engagée
-      </div>
-      <div class="pillar">
-        <div class="pillar-title"><span>🎯</span> Intention mensuelle</div>
-        <div class="pillar-content">Cultiver une force tranquille, où fermeté et bienveillance dialoguent harmonieusement.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title"><span>📍</span> Objectifs stratégiques</div>
-        <ul class="objectives-list">
-          <li><strong>Personnel</strong> : Pratiquer 10 minutes de respiration consciente chaque matin.</li>
-          <li><strong>Famille & proches</strong> : Créer un rituel hebdomadaire "connexion sans écran".</li>
-          <li><strong>Mission</strong> : Écrire ma "Charte de Valeurs" personnelle et professionnelle.</li>
-        </ul>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title"><span>🕊️</span> Lâcher-prise</div>
-        <div class="pillar-content">Je libère l'idée que la vulnérabilité est une faiblesse. C'est au contraire le socle d'une authenticité rayonnante.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title"><span>🌀</span> Exercice de relaxation intégré</div>
-        <div class="relaxation-exercise">
-          <strong>Respiration 4-7-8</strong> : Inspire sur 4 temps, retiens sur 7, expire lentement sur 8. Répète 5 cycles.<br>
-          <em>À pratiquer dès que tu sens la tension monter.</em>
+    <div class="container" id="mainContainer">
+        <div class="header">
+            <h1>KING 2026</h1>
+            <div class="subtitle">Un voyage mensuel vers l'alignement, la sérénité et l'accomplissement universel</div>
+            <!-- Image ajoutée ici -->
+            <img src="assets/images/jeglow.png" alt="KING 2026 - Inspiration" class="hero-image">
         </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title"><span>⚠️</span> Habitudes à observer avec bienveillance</div>
-        <ul class="habits-list">
-          <li>Réagir rapidement plutôt que de répondre avec intention</li>
-          <li>Éviter les conversations qui demandent de l'ouverture émotionnelle</li>
-          <li>Négliger les moments de pause sous prétexte de productivité</li>
-        </ul>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title"><span>💪</span> Mouvement & vitalité</div>
-        <div class="sport-sequence">
-          • Lundi/Jeudi : Yoga doux 25 min + marche consciente<br>
-          • Mardi/Vendredi : Renforcement léger (pompes, squats, gainage)<br>
-          • Samedi : Étirements profonds + respiration
+
+        <div class="progress-container">
+            <div class="progress-title">
+                📈 Progression annuelle
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">
+                <span>Début</span>
+                <span id="progressPercentage">0%</span>
+                <span>Complété</span>
+            </div>
         </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title"><span>⏳</span> Temps sacrés hebdomadaires</div>
-        <div class="time-block">
-          <div class="time-slot">Pour moi : 6h</div>
-          <div class="time-slot">Avec mes proches : 5h</div>
-          <div class="time-slot">Dans mon cercle : 2h</div>
-          <div class="time-slot">Pour ma mission : 6h</div>
+
+        <div class="ritual-note">
+            💫 <strong>Note d'ouverture</strong> : Ce programme est conçu comme un compagnon bienveillant. Chaque mois se dévoile seulement lorsque le précédent est complété. Prends le temps de vivre chaque étape pleinement, sans pression, avec curiosité et douceur envers toi-même.
         </div>
-      </div>
-      <div class="completion-check">
-        <input type="checkbox" id="completeFeb" onchange="completeMonth('february')">
-        <label for="completeFeb">J'ai vécu ce mois avec présence et bienveillance</label>
-      </div>
-    </div>
 
-    <!-- MOIS 2 à 12 – verrouillés par défaut -->
-    <div class="month-card locked" id="march">
-      <div class="month-title">
-        <span class="emoji">🦁</span> Mars 2026 : La Discipline Sereine <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Ce mois sera déverrouillé lorsque tu auras complété Février avec intention et bienveillance.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="april">
-      <div class="month-title">
-        <span class="emoji">🌱</span> Avril 2026 : Racines & Épanouissement <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Mars.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="may">
-      <div class="month-title">
-        <span class="emoji">🌸</span> Mai 2026 : Floraison & Abondance <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Avril.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="june">
-      <div class="month-title">
-        <span class="emoji">🌞</span> Juin 2026 : Lumière & Clarté <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Mai.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="july">
-      <div class="month-title">
-        <span class="emoji">🌊</span> Juillet 2026 : Fluidité & Lâcher-Prise <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Juin.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="august">
-      <div class="month-title">
-        <span class="emoji">⛰️</span> Août 2026 : Hauteur & Perspective <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Juillet.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="september">
-      <div class="month-title">
-        <span class="emoji">📚</span> Septembre 2026 : Intégration & Nouveaux Départs <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Août.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="october">
-      <div class="month-title">
-        <span class="emoji">🍂</span> Octobre 2026 : Transformation & Lâcher les Feuilles Mortes <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Septembre.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="november">
-      <div class="month-title">
-        <span class="emoji">🕯️</span> Novembre 2026 : Recueillement & Gratitude Profonde <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Octobre.
-      </div>
-    </div>
-    
-    <div class="month-card locked" id="december">
-      <div class="month-title">
-        <span class="emoji">🎄</span> Décembre 2026 : Célébration & Plénitude <span class="lock-icon">🔒</span>
-      </div>
-      <div class="locked-message">
-        ⏳ Disponible après avoir complété Novembre.
-      </div>
-    </div>
+        <!-- MOIS 1 : FÉVRIER (seul visible au départ) -->
+        <div class="month-card" id="february">
+            <div class="month-title">
+                <span class="emoji">💙</span> Février 2026 : La Douceur Engagée
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-title"><span>🎯</span> Intention mensuelle</div>
+                <div class="pillar-content">Cultiver une force tranquille, où fermeté et bienveillance dialoguent harmonieusement.</div>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-title"><span>📍</span> Objectifs stratégiques</div>
+                <ul class="objectives-list">
+                    <li><strong>Personnel</strong> : Pratiquer 10 minutes de respiration consciente chaque matin.</li>
+                    <li><strong>Famille & proches</strong> : Créer un rituel hebdomadaire "connexion sans écran".</li>
+                    <li><strong>Mission</strong> : Écrire ma "Charte de Valeurs" personnelle et professionnelle.</li>
+                </ul>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-title"><span>🕊️</span> Lâcher-prise</div>
+                <div class="pillar-content">Je libère l'idée que la vulnérabilité est une faiblesse. C'est au contraire le socle d'une authenticité rayonnante.</div>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-title"><span>🌀</span> Exercice de relaxation intégré</div>
+                <div class="relaxation-exercise">
+                    <strong>Respiration 4-7-8</strong> : Inspire sur 4 temps, retiens sur 7, expire lentement sur 8. Répète 5 cycles.<br>
+                    <div class="breathing-animation">
+                        <div class="breath-circle"></div>
+                        <div class="breath-label">Inspire... Retiens... Expire...</div>
+                    </div>
+                    <em>À pratiquer dès que tu sens la tension monter.</em>
+                </div>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-title"><span>⚠️</span> Habitudes à observer avec bienveillance</div>
+                <ul class="habits-list">
+                    <li>Réagir rapidement plutôt que de répondre avec intention</li>
+                    <li>Éviter les conversations qui demandent de l'ouverture émotionnelle</li>
+                    <li>Négliger les moments de pause sous prétexte de productivité</li>
+                </ul>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-title"><span>💪</span> Mouvement & vitalité</div>
+                <div class="sport-sequence">
+                    • Lundi/Jeudi : Yoga doux 25 min + marche consciente<br>
+                    • Mardi/Vendredi : Renforcement léger (pompes, squats, gainage)<br>
+                    • Samedi : Étirements profonds + respiration
+                </div>
+            </div>
+            
+            <div class="pillar">
+                <div class="pillar-title"><span>⏳</span> Temps sacrés hebdomadaires</div>
+                <div class="time-block">
+                    <div class="time-slot">Pour moi : 6h</div>
+                    <div class="time-slot">Avec mes proches : 5h</div>
+                    <div class="time-slot">Dans mon cercle : 2h</div>
+                    <div class="time-slot">Pour ma mission : 6h</div>
+                </div>
+            </div>
+            
+            <div class="completion-check">
+                <!-- CORRECTION: ID uniformisé avec "Feb" -->
+                <input type="checkbox" id="completeFeb" onchange="completeMonth('february')">
+                <label for="completeFeb">J'ai vécu ce mois avec présence et bienveillance</label>
+            </div>
+        </div>
 
-    <div class="footer">
-      🌿 Créé avec intention par <strong>KING 2026 Team</strong> – Pour l'homme universel qui choisit d'avancer avec conscience, curiosité et cœur.
-      <br>
-      <small style="color: #94a3b8; margin-top: 8px; display: block;">Ton progrès est sauvegardé automatiquement.</small>
-    </div>
-  </div>
+        <!-- MOIS 2 à 11 (verrouillés par défaut) -->
+        <div class="month-card locked" id="march">
+            <div class="month-title">
+                <span class="emoji">🦁</span> Mars 2026 : La Discipline Sereine
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Ce mois sera déverrouillé lorsque tu auras complété Février avec intention et bienveillance.
+            </div>
+        </div>
 
-  <script>
-    const monthsData = {
-      march: { emoji: "🦁", title: "Mars 2026 : La Discipline Sereine", intention: "Cultiver une régularité qui nourrit plutôt qu'elle ne contraint.", objectives: ["Personnel : Atteindre 90% de réveil avant 6h30 avec douceur", "Famille & proches : Instaurer un 'conseil familial' mensuel", "Mission : Finaliser la première version de mon projet principal"], release: "Je libère la pression de la perfection. Le progrès régulier est plus précieux que la performance ponctuelle.", relaxation: "Méditation de scan corporel 10 min par jour. Visualisation d'une lumière apaisante parcourant ton corps.", habits: ["Repousser une tâche importante par procrastination", "S'autocritiquer sévèrement face à un écart", "Négliger les signaux de fatigue au nom de la productivité"], sport: "• Lundi/Mercredi/Vendredi : Circuit énergie 30 min\n• Mardi/Jeudi : Marche rapide ou natation\n• Week-end : Repos actif (étirements, balade)", times: ["Pour moi : 7h", "Avec mes proches : 4h", "Dans mon cercle : 2h", "Pour ma mission : 8h"] },
-      april: { emoji: "🌱", title: "Avril 2026 : Racines & Épanouissement", intention: "Puiser dans mes ressources personnelles pour grandir avec authenticité.", objectives: ["Personnel : Compléter un inventaire de mes forces et qualités essentielles", "Famille & proches : Partager une histoire ou tradition significative", "Mission : Donner un atelier ou partager une compétence dans ma communauté"], release: "Je libère toute honte ou comparaison liée à mon parcours. Mon histoire est unique et précieuse.", relaxation: "Respiration connectée : imaginer des racines qui partent de tes pieds et s'ancrent dans la terre pendant l'inspiration.", habits: ["Éviter de parler de mon parcours par complexité", "Consommer des contenus qui ne résonnent pas avec mes valeurs", "Minimiser mes réussites par modestie excessive"], sport: "• Yoga fondamental 3x/semaine\n• Marche en nature (si possible)\n• Danse libre sur musique qui parle à l'âme", times: ["Pour moi : 6h", "Avec mes proches : 5h", "Dans mon cercle : 3h", "Pour ma mission : 6h"] },
-      may: { emoji: "🌸", title: "Mai 2026 : Floraison & Abondance", intention: "Accueillir les fruits de mon travail intérieur et célébrer les petites victoires.", objectives: ["Personnel : Tenir un journal de gratitude quotidien", "Famille & proches : Organiser un repas festif pour célébrer les succès récents", "Mission : Partager publiquement un accomplissement récent"], release: "Je libère la peur de recevoir et de briller. Je mérite l'abondance sous toutes ses formes.", relaxation: "Visualisation d'un jardin intérieur florissant. Respiration profonde en imaginant recevoir l'abondance.", habits: ["Minimiser les compliments reçus", "Retarder les célébrations 'en attendant plus'", "Craindre que le succès attire la jalousie"], sport: "• Danse expressive 3x/semaine\n• Yoga du rire\n• Activités en plein air joyeuses", times: ["Pour moi : 5h", "Avec mes proches : 6h", "Dans mon cercle : 3h", "Pour ma mission : 7h"] },
-      june: { emoji: "🌞", title: "Juin 2026 : Lumière & Clarté", intention: "Faire la lumière sur mes besoins véritables et clarifier ma direction.", objectives: ["Personnel : Faire un bilan mi-année honnête et ajuster si nécessaire", "Famille & proches : Organiser une séance de feedback bienveillant", "Mission : Simplifier mes processus pour plus d'efficacité"], release: "Je libère les projets qui ne résonnent plus et les engagements superflus.", relaxation: "Méditation de la lumière intérieure. Visualiser une bougie qui éclaire mes choix.", habits: ["Surcharger mon emploi du temps par peur de manquer", "Éviter les décisions difficiles", "Garder des projets 'au cas où'"], sport: "• Natation ou sports aquatiques\n• Yoga du soleil\n• Marche méditative au lever du jour", times: ["Pour moi : 7h", "Avec mes proches : 5h", "Dans mon cercle : 2h", "Pour ma mission : 6h"] },
-      july: { emoji: "🌊", title: "Juillet 2026 : Fluidité & Lâcher-Prise", intention: "Accueillir l'été avec souplesse et fluidité dans mes actions et mes pensées.", objectives: ["Personnel : Expérimenter une nouvelle activité créative sans pression de résultat", "Famille & proches : Organiser une journée spontanée et improvisée", "Mission : Travailler en mode 'flow state' sur un projet passionnant"], release: "Je libère le besoin de tout contrôler. Je fais confiance au processus et au timing parfait des choses.", relaxation: "Méditation du courant. S'imaginer flottant doucement sur une rivière, emporté par le courant naturel.", habits: ["Surplanifier chaque moment de loisir", "Résister aux changements de dernière minute", "Chercher à optimiser chaque instant de détente"], sport: "• Sports aquatiques (natation, paddle, aquagym)\n• Danse improvisée\n• Longues balades sans itinéraire fixe", times: ["Pour moi : 8h", "Avec mes proches : 6h", "Dans mon cercle : 2h", "Pour ma mission : 4h"] },
-      august: { emoji: "⛰️", title: "Août 2026 : Hauteur & Perspective", intention: "Prendre du recul pour voir mon parcours dans son ensemble et ajuster ma vision.", objectives: ["Personnel : Faire une retraite d'un jour (même à la maison) pour réfléchir", "Famille & proches : Créer un arbre des rêves familiaux pour les 5 prochaines années", "Mission : Élaborer une vision stratégique pour le second semestre"], release: "Je libère les petits détails qui m'absorbent. Je choisis de voir la grande image.", relaxation: "Visualisation d'une montagne. S'imaginer en haut, observant le paysage de sa vie avec calme et clarté.", habits: ["S'engluer dans les détails opérationnels", "Perdre de vue les objectifs à long terme", "Négliger les moments de réflexion profonde"], sport: "• Randonnée en altitude si possible\n• Yoga surélevé (postures debout, équilibre)\n• Étirements pour ouvrir la cage thoracique", times: ["Pour moi : 7h", "Avec mes proches : 5h", "Dans mon cercle : 2h", "Pour ma mission : 6h"] },
-      september: { emoji: "📚", title: "Septembre 2026 : Intégration & Nouveaux Départs", intention: "Intégrer les apprentissages de l'été et commencer de nouveaux cycles avec sagesse.", objectives: ["Personnel : Formuler 3 apprentissages majeurs de l'année et 3 intentions pour la suite", "Famille & proches : Mettre en place de nouveaux rituels pour la rentrée", "Mission : Lancer un nouveau projet ou phase aligné avec mes insights récents"], release: "Je libère les anciennes versions de moi. J'accueille la personne que je suis devenue.", relaxation: "Méditation de l'intégration. Visualiser toutes les expériences de l'année se tissant en une tapisserie cohérente.", habits: ["Retomber dans les vieux schémas par habitude", "Négliger de formaliser les apprentissages", "Craindre de commencer quelque chose de nouveau"], sport: "• Reprise progressive des activités\n• Pilates pour le recentrage\n• Marche rapide avec écoute de podcasts inspirants", times: ["Pour moi : 6h", "Avec mes proches : 4h", "Dans mon cercle : 3h", "Pour ma mission : 7h"] },
-      october: { emoji: "🍂", title: "Octobre 2026 : Transformation & Lâcher les Feuilles Mortes", intention: "Accueillir la beauté du changement et laisser partir ce qui ne me sert plus.", objectives: ["Personnel : Faire un grand tri (matériel, numérique, relationnel)", "Famille & proches : Organiser un échange de compétences en famille", "Mission : Automatiser ou déléguer 3 tâches chronophages"], release: "Je libère les relations, croyances et objets qui alourdissent mon chemin. Je fais de la place pour le neuf.", relaxation: "Respiration du feuillage. Inspirer ce qui nourrit, expirer ce qui doit tomber, comme les arbres en automne.", habits: ["Garder par attachement ou 'au cas où'", "Éviter les conversations de clarification dans les relations", "Surcharger son espace et son emploi du temps"], sport: "• Yoga du lâcher-prise\n• Course à pied dans la nature\n• Arts martiaux doux (Tai-chi, Qi Gong)", times: ["Pour moi : 6h", "Avec mes proches : 5h", "Dans mon cercle : 2h", "Pour ma mission : 7h"] },
-      november: { emoji: "🕯️", title: "Novembre 2026 : Recueillement & Gratitude Profonde", intention: "Cultiver une gratitude profonde et un recueillement bienveillant envers tout ce que j'ai accompli.", objectives: ["Personnel : Écrire une lettre de gratitude à mon moi passé", "Famille & proches : Créer un rituel de gratitude familiale quotidien", "Mission : Remercier publiquement 3 personnes qui ont soutenu mon projet"], release: "Je libère toute amertume ou regret. Je choisis de voir chaque expérience comme un enseignement.", relaxation: "Méditation de la gratitude lumineuse. Visualiser une bougie qui représente chaque chose pour laquelle je suis reconnaissant.", habits: ["Se focaliser sur ce qui manque plutôt que sur ce qui est", "Négliger de remercier les petites bontés quotidiennes", "Passer rapidement sur les moments de recueillement"], sport: "• Yoga restaurateur\n• Marche lente et contemplative\n• Étirements doux avec respiration consciente", times: ["Pour moi : 7h", "Avec mes proches : 6h", "Dans mon cercle : 2h", "Pour ma mission : 5h"] },
-      december: { emoji: "🎄", title: "Décembre 2026 : Célébration & Plénitude", intention: "Célébrer l'année écoulée et entrer dans l'hiver avec un sentiment d'accomplissement et de paix.", objectives: ["Personnel : Réaliser un rituel de clôture d'année symbolique", "Famille & proches : Organiser une célébration des petites et grandes victoires familiales", "Mission : Finaliser l'année en beauté et préparer un repos mérité"], release: "Je libère tout sentiment d'inachevé. Je reconnais la perfection du chemin parcouru, avec ses hauts et ses bas.", relaxation: "Méditation de la plénitude. Sentir chaque cellule de son corps remplie de la sagesse accumulée pendant l'année.", habits: ["Se précipiter vers les objectifs de l'année suivante sans clore la présente", "Minimiser ses accomplissements", "Négliger les temps de repos et de régénération"], sport: "• Danses festives et joyeuses\n• Promenades hivernales contemplatives\n• Yoga doux pour intégrer l'année", times: ["Pour moi : 8h", "Avec mes proches : 7h", "Dans mon cercle : 3h", "Pour ma mission : 2h"] }
-    };
+        <div class="month-card locked" id="april">
+            <div class="month-title">
+                <span class="emoji">🌱</span> Avril 2026 : Racines & Épanouissement
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Mars.
+            </div>
+        </div>
 
-    // ========== SYSTÈME DE DÉVERROUILLAGE FONCTIONNEL ==========
-    let completedMonths = [];
-    const monthOrder = ['february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+        <div class="month-card locked" id="may">
+            <div class="month-title">
+                <span class="emoji">🌸</span> Mai 2026 : Floraison & Abondance
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Avril.
+            </div>
+        </div>
 
-    // Charger la progression depuis localStorage
-    function loadProgress() {
-      const saved = localStorage.getItem('king2026Progress');
-      completedMonths = saved ? JSON.parse(saved) : [];
-      console.log('Progression chargée:', completedMonths);
-    }
+        <div class="month-card locked" id="june">
+            <div class="month-title">
+                <span class="emoji">🌞</span> Juin 2026 : Lumière & Clarté
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Mai.
+            </div>
+        </div>
 
-    // Sauvegarder la progression
-    function saveProgress() {
-      localStorage.setItem('king2026Progress', JSON.stringify(completedMonths));
-      console.log('Progression sauvegardée:', completedMonths);
-    }
+        <div class="month-card locked" id="july">
+            <div class="month-title">
+                <span class="emoji">🌊</span> Juillet 2026 : Fluidité & Lâcher-Prise
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Juin.
+            </div>
+        </div>
 
-    // Fonction principale pour compléter un mois
-    function completeMonth(monthId) {
-      const checkbox = document.getElementById(`complete${capitalizeFirst(monthId)}`);
-      
-      // Vérifier si la checkbox est cochée
-      if (!checkbox || !checkbox.checked) return;
-      
-      // Si le mois n'est pas déjà complété
-      if (!completedMonths.includes(monthId)) {
-        // Ajouter aux mois complétés
-        completedMonths.push(monthId);
-        saveProgress();
+        <div class="month-card locked" id="august">
+            <div class="month-title">
+                <span class="emoji">⛰️</span> Août 2026 : Hauteur & Perspective
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Juillet.
+            </div>
+        </div>
+
+        <div class="month-card locked" id="september">
+            <div class="month-title">
+                <span class="emoji">📚</span> Septembre 2026 : Intégration & Nouveaux Départs
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Août.
+            </div>
+        </div>
+
+        <div class="month-card locked" id="october">
+            <div class="month-title">
+                <span class="emoji">🍂</span> Octobre 2026 : Transformation & Lâcher les Feuilles Mortes
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Septembre.
+            </div>
+        </div>
+
+        <div class="month-card locked" id="november">
+            <div class="month-title">
+                <span class="emoji">🕯️</span> Novembre 2026 : Recueillement & Gratitude Profonde
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Octobre.
+            </div>
+        </div>
+
+        <div class="month-card locked" id="december">
+            <div class="month-title">
+                <span class="emoji">🎄</span> Décembre 2026 : Célébration & Plénitude
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="pillar-content">
+                Disponible après avoir complété Novembre.
+            </div>
+        </div>
         
-        // Animation de succès
-        showSuccessAnimation();
-        
-        // Marquer le mois comme complété
-        const monthCard = document.getElementById(monthId);
-        if (monthCard) {
-          monthCard.classList.add('completed');
-          const label = checkbox.nextElementSibling;
-          if (label) {
-            label.textContent = '✅ Mois complété avec succès';
-          }
-          checkbox.disabled = true;
-        }
-        
-        // Déverrouiller le mois suivant
-        unlockNextMonth(monthId);
-        
-        // Mettre à jour la progression
-        updateProgress();
-        
-        console.log(`Mois ${monthId} complété. Mois suivants déverrouillés.`);
-      }
-    }
-
-    // Déverrouiller le mois suivant
-    function unlockNextMonth(completedMonthId) {
-      const currentIndex = monthOrder.indexOf(completedMonthId);
-      
-      if (currentIndex !== -1 && currentIndex < monthOrder.length - 1) {
-        const nextMonthId = monthOrder[currentIndex + 1];
-        const nextMonthCard = document.getElementById(nextMonthId);
-        
-        if (nextMonthCard && nextMonthCard.classList.contains('locked')) {
-          // Construire le contenu du mois suivant
-          buildMonthCard(nextMonthId);
-          // Retirer la classe locked
-          nextMonthCard.classList.remove('locked');
-          // Ajouter un effet visuel
-          nextMonthCard.style.animation = 'none';
-          setTimeout(() => {
-            nextMonthCard.style.animation = 'unlockEffect 0.6s ease';
-          }, 10);
-          
-          console.log(`Mois ${nextMonthId} déverrouillé.`);
-        }
-      }
-    }
-
-    // Construire le contenu d'un mois
-    function buildMonthCard(monthId) {
-      const data = monthsData[monthId];
-      if (!data) return;
-
-      const card = document.getElementById(monthId);
-      if (!card) return;
-
-      let objectivesHtml = '';
-      data.objectives.forEach(obj => {
-        const parts = obj.split(' : ');
-        if (parts.length === 2) {
-          objectivesHtml += `<li><strong>${parts[0]}</strong> : ${parts[1]}</li>`;
-        } else {
-          objectivesHtml += `<li>${obj}</li>`;
-        }
-      });
-
-      let habitsHtml = data.habits.map(habit => `<li>${habit}</li>`).join('');
-      let timesHtml = data.times.map(time => `<div class="time-slot">${time}</div>`).join('');
-
-      const monthNameCap = capitalizeFirst(monthId);
-      const completionLabels = {
-        february: "J'ai vécu ce mois avec présence et bienveillance",
-        march: "J'ai honoré ce mois avec régularité et douceur",
-        april: "J'ai cultivé mes ressources avec gratitude",
-        may: "J'ai célébré mes floraisons avec joie",
-        june: "J'ai clarifié ma direction avec lumière",
-        july: "J'ai navigué avec fluidité et lâcher-prise",
-        august: "J'ai pris de la hauteur sur mon parcours",
-        september: "J'ai intégré mes apprentissages avec sagesse",
-        october: "J'ai transformé avec grâce ce qui devait l'être",
-        november: "J'ai cultivé la gratitude en profondeur",
-        december: "J'ai célébré mon année avec plénitude"
-      };
-
-      card.innerHTML = `
-        <div class="month-title">
-          <span class="emoji">${data.emoji}</span> ${data.title}
+        <div class="footer">
+            🌿 Créé avec intention par <strong>KING 2026 Team</strong> – Pour l'homme universel qui choisit d'avancer avec conscience, curiosité et cœur.
         </div>
-        <div class="pillar">
-          <div class="pillar-title"><span>🎯</span> Intention mensuelle</div>
-          <div class="pillar-content">${data.intention}</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title"><span>📍</span> Objectifs stratégiques</div>
-          <ul class="objectives-list">${objectivesHtml}</ul>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title"><span>🕊️</span> Lâcher-prise</div>
-          <div class="pillar-content">${data.release}</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title"><span>🌀</span> Exercice de relaxation intégré</div>
-          <div class="relaxation-exercise">${data.relaxation}</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title"><span>⚠️</span> Habitudes à observer avec bienveillance</div>
-          <ul class="habits-list">${habitsHtml}</ul>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title"><span>💪</span> Mouvement & vitalité</div>
-          <div class="sport-sequence">${data.sport}</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title"><span>⏳</span> Temps sacrés hebdomadaires</div>
-          <div class="time-block">${timesHtml}</div>
-        </div>
-        <div class="completion-check">
-          <input type="checkbox" id="complete${monthNameCap}" onchange="completeMonth('${monthId}')">
-          <label for="complete${monthNameCap}">${completionLabels[monthId] || "J'ai complété ce mois avec intention"}</label>
-        </div>
-      `;
-    }
+    </div>
 
-    // Mettre à jour la barre de progression
-    function updateProgress() {
-      const total = 11; // février à décembre
-      const progress = (completedMonths.length / total) * 100;
-      const fill = document.getElementById('progressFill');
-      const percentage = document.getElementById('progressPercentage');
-      
-      if (fill && percentage) {
-        fill.style.width = `${progress}%`;
-        percentage.textContent = `${Math.round(progress)}%`;
-      }
-    }
-
-    // Animation de succès
-    function showSuccessAnimation() {
-      const anim = document.createElement('div');
-      anim.className = 'success-animation';
-      document.body.appendChild(anim);
-      setTimeout(() => anim.remove(), 1000);
-    }
-
-    // Helper: Capitaliser la première lettre
-    function capitalizeFirst(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
-    // Initialiser l'application
-    function initializeApp() {
-      loadProgress();
-      updateProgress();
-      
-      console.log('Initialisation avec mois complétés:', completedMonths);
-      
-      // Pour chaque mois complété, restaurer son état
-      completedMonths.forEach(monthId => {
-        const card = document.getElementById(monthId);
-        const checkboxId = `complete${capitalizeFirst(monthId)}`;
-        
-        // Marquer la carte comme complétée
-        if (card) {
-          card.classList.add('completed');
-        }
-      });
-      
-      // Déverrouiller et construire tous les mois qui devraient être déverrouillés
-      let lastUnlockedIndex = -1;
-      
-      // Trouver le dernier mois complété
-      completedMonths.forEach(monthId => {
-        const index = monthOrder.indexOf(monthId);
-        if (index > lastUnlockedIndex) {
-          lastUnlockedIndex = index;
-        }
-      });
-      
-      // Déverrouiller tous les mois jusqu'au suivant du dernier complété
-      for (let i = 0; i <= Math.min(lastUnlockedIndex + 1, monthOrder.length - 1); i++) {
-        const monthId = monthOrder[i];
-        
-        // Février est toujours visible
-        if (monthId === 'february') continue;
-        
-        const card = document.getElementById(monthId);
-        if (card && card.classList.contains('locked')) {
-          buildMonthCard(monthId);
-          card.classList.remove('locked');
-          
-          // Si ce mois est complété, cocher la checkbox
-          if (completedMonths.includes(monthId)) {
-            const checkbox = document.getElementById(`complete${capitalizeFirst(monthId)}`);
-            if (checkbox) {
-              checkbox.checked = true;
-              checkbox.disabled = true;
-              const label = checkbox.nextElementSibling;
-              if (label) {
-                label.textContent = '✅ Mois complété avec succès';
-              }
+    <script>
+        // Données complètes des 11 mois (février à décembre)
+        const monthsData = {
+            march: {
+                emoji: "🦁",
+                title: "Mars 2026 : La Discipline Sereine",
+                intention: "Cultiver une régularité qui nourrit plutôt qu'elle ne contraint.",
+                objectives: [
+                    "Personnel : Atteindre 90% de réveil avant 6h30 avec douceur",
+                    "Famille & proches : Instaurer un 'conseil familial' mensuel",
+                    "Mission : Finaliser la première version de mon projet principal"
+                ],
+                release: "Je libère la pression de la perfection. Le progrès régulier est plus précieux que la performance ponctuelle.",
+                relaxation: "Méditation de scan corporel 10 min par jour. Visualisation d'une lumière apaisante parcourant ton corps.",
+                habits: [
+                    "Repousser une tâche importante par procrastination",
+                    "S'autocritiquer sévèrement face à un écart",
+                    "Négliger les signaux de fatigue au nom de la productivité"
+                ],
+                sport: "• Lundi/Mercredi/Vendredi : Circuit énergie 30 min\n• Mardi/Jeudi : Marche rapide ou natation\n• Week-end : Repos actif (étirements, balade)",
+                times: ["Pour moi : 7h", "Avec mes proches : 4h", "Dans mon cercle : 2h", "Pour ma mission : 8h"]
+            },
+            april: {
+                emoji: "🌱",
+                title: "Avril 2026 : Racines & Épanouissement",
+                intention: "Puiser dans mes ressources personnelles pour grandir avec authenticité.",
+                objectives: [
+                    "Personnel : Compléter un inventaire de mes forces et qualités essentielles",
+                    "Famille & proches : Partager une histoire ou tradition significative",
+                    "Mission : Donner un atelier ou partager une compétence dans ma communauté"
+                ],
+                release: "Je libère toute honte ou comparaison liée à mon parcours. Mon histoire est unique et précieuse.",
+                relaxation: "Respiration connectée : imaginer des racines qui partent de tes pieds et s'ancrent dans la terre pendant l'inspiration.",
+                habits: [
+                    "Éviter de parler de mon parcours par complexité",
+                    "Consommer des contenus qui ne résonnent pas avec mes valeurs",
+                    "Minimiser mes réussites par modestie excessive"
+                ],
+                sport: "• Yoga fondamental 3x/semaine\n• Marche en nature (si possible)\n• Danse libre sur musique qui parle à l'âme",
+                times: ["Pour moi : 6h", "Avec mes proches : 5h", "Dans mon cercle : 3h", "Pour ma mission : 6h"]
+            },
+            may: {
+                emoji: "🌸",
+                title: "Mai 2026 : Floraison & Abondance",
+                intention: "Accueillir les fruits de mon travail intérieur et célébrer les petites victoires.",
+                objectives: [
+                    "Personnel : Tenir un journal de gratitude quotidien",
+                    "Famille & proches : Organiser un repas festif pour célébrer les succès récents",
+                    "Mission : Partager publiquement un accomplissement récent"
+                ],
+                release: "Je libère la peur de recevoir et de briller. Je mérite l'abondance sous toutes ses formes.",
+                relaxation: "Visualisation d'un jardin intérieur florissant. Respiration profonde en imaginant recevoir l'abondance.",
+                habits: [
+                    "Minimiser les compliments reçus",
+                    "Retarder les célébrations 'en attendant plus'",
+                    "Craindre que le succès attire la jalousie"
+                ],
+                sport: "• Danse expressive 3x/semaine\n• Yoga du rire\n• Activités en plein air joyeuses",
+                times: ["Pour moi : 5h", "Avec mes proches : 6h", "Dans mon cercle : 3h", "Pour ma mission : 7h"]
+            },
+            june: {
+                emoji: "🌞",
+                title: "Juin 2026 : Lumière & Clarté",
+                intention: "Faire la lumière sur mes besoins véritables et clarifier ma direction.",
+                objectives: [
+                    "Personnel : Faire un bilan mi-année honnête et ajuster si nécessaire",
+                    "Famille & proches : Organiser une séance de feedback bienveillant",
+                    "Mission : Simplifier mes processus pour plus d'efficacité"
+                ],
+                release: "Je libère les projets qui ne résonnent plus et les engagements superflus.",
+                relaxation: "Méditation de la lumière intérieure. Visualiser une bougie qui éclaire mes choix.",
+                habits: [
+                    "Surcharger mon emploi du temps par peur de manquer",
+                    "Éviter les décisions difficiles",
+                    "Garder des projets 'au cas où'"
+                ],
+                sport: "• Natation ou sports aquatiques\n• Yoga du soleil\n• Marche méditative au lever du jour",
+                times: ["Pour moi : 7h", "Avec mes proches : 5h", "Dans mon cercle : 2h", "Pour ma mission : 6h"]
+            },
+            july: {
+                emoji: "🌊",
+                title: "Juillet 2026 : Fluidité & Lâcher-Prise",
+                intention: "Accueillir l'été avec souplesse et fluidité dans mes actions et mes pensées.",
+                objectives: [
+                    "Personnel : Expérimenter une nouvelle activité créative sans pression de résultat",
+                    "Famille & proches : Organiser une journée spontanée et improvisée",
+                    "Mission : Travailler en mode 'flow state' sur un projet passionnant"
+                ],
+                release: "Je libère le besoin de tout contrôler. Je fais confiance au processus et au timing parfait des choses.",
+                relaxation: "Méditation du courant. S'imaginer flottant doucement sur une rivière, emporté par le courant naturel.",
+                habits: [
+                    "Surplanifier chaque moment de loisir",
+                    "Résister aux changements de dernière minute",
+                    "Chercher à optimiser chaque instant de détente"
+                ],
+                sport: "• Sports aquatiques (natation, paddle, aquagym)\n• Danse improvisée\n• Longues balades sans itinéraire fixe",
+                times: ["Pour moi : 8h", "Avec mes proches : 6h", "Dans mon cercle : 2h", "Pour ma mission : 4h"]
+            },
+            august: {
+                emoji: "⛰️",
+                title: "Août 2026 : Hauteur & Perspective",
+                intention: "Prendre du recul pour voir mon parcours dans son ensemble et ajuster ma vision.",
+                objectives: [
+                    "Personnel : Faire une retraite d'un jour (même à la maison) pour réfléchir",
+                    "Famille & proches : Créer un arbre des rêves familiaux pour les 5 prochaines années",
+                    "Mission : Élaborer une vision stratégique pour le second semestre"
+                ],
+                release: "Je libère les petits détails qui m'absorbent. Je choisis de voir la grande image.",
+                relaxation: "Visualisation d'une montagne. S'imaginer en haut, observant le paysage de sa vie avec calme et clarté.",
+                habits: [
+                    "S'engluer dans les détails opérationnels",
+                    "Perdre de vue les objectifs à long terme",
+                    "Négliger les moments de réflexion profonde"
+                ],
+                sport: "• Randonnée en altitude si possible\n• Yoga surélevé (postures debout, équilibre)\n• Étirements pour ouvrir la cage thoracique",
+                times: ["Pour moi : 7h", "Avec mes proches : 5h", "Dans mon cercle : 2h", "Pour ma mission : 6h"]
+            },
+            september: {
+                emoji: "📚",
+                title: "Septembre 2026 : Intégration & Nouveaux Départs",
+                intention: "Intégrer les apprentissages de l'été et commencer de nouveaux cycles avec sagesse.",
+                objectives: [
+                    "Personnel : Formuler 3 apprentissages majeurs de l'année et 3 intentions pour la suite",
+                    "Famille & proches : Mettre en place de nouveaux rituels pour la rentrée",
+                    "Mission : Lancer un nouveau projet ou phase aligné avec mes insights récents"
+                ],
+                release: "Je libère les anciennes versions de moi. J'accueille la personne que je suis devenue.",
+                relaxation: "Méditation de l'intégration. Visualiser toutes les expériences de l'année se tissant en une tapisserie cohérente.",
+                habits: [
+                    "Retomber dans les vieux schémas par habitude",
+                    "Négliger de formaliser les apprentissages",
+                    "Craindre de commencer quelque chose de nouveau"
+                ],
+                sport: "• Reprise progressive des activités\n• Pilates pour le recentrage\n• Marche rapide avec écoute de podcasts inspirants",
+                times: ["Pour moi : 6h", "Avec mes proches : 4h", "Dans mon cercle : 3h", "Pour ma mission : 7h"]
+            },
+            october: {
+                emoji: "🍂",
+                title: "Octobre 2026 : Transformation & Lâcher les Feuilles Mortes",
+                intention: "Accueillir la beauté du changement et laisser partir ce qui ne me sert plus.",
+                objectives: [
+                    "Personnel : Faire un grand tri (matériel, numérique, relationnel)",
+                    "Famille & proches : Organiser un échange de compétences en famille",
+                    "Mission : Automatiser ou déléguer 3 tâches chronophages"
+                ],
+                release: "Je libère les relations, croyances et objets qui alourdissent mon chemin. Je fais de la place pour le neuf.",
+                relaxation: "Respiration du feuillage. Inspirer ce qui nourrit, expirer ce qui doit tomber, comme les arbres en automne.",
+                habits: [
+                    "Garder par attachement ou 'au cas où'",
+                    "Éviter les conversations de clarification dans les relations",
+                    "Surcharger son espace et son emploi du temps"
+                ],
+                sport: "• Yoga du lâcher-prise\n• Course à pied dans la nature\n• Arts martiaux doux (Tai-chi, Qi Gong)",
+                times: ["Pour moi : 6h", "Avec mes proches : 5h", "Dans mon cercle : 2h", "Pour ma mission : 7h"]
+            },
+            november: {
+                emoji: "🕯️",
+                title: "Novembre 2026 : Recueillement & Gratitude Profonde",
+                intention: "Cultiver une gratitude profonde et un recueillement bienveillant envers tout ce que j'ai accompli.",
+                objectives: [
+                    "Personnel : Écrire une lettre de gratitude à mon moi passé",
+                    "Famille & proches : Créer un rituel de gratitude familiale quotidien",
+                    "Mission : Remercier publiquement 3 personnes qui ont soutenu mon projet"
+                ],
+                release: "Je libère toute amertume ou regret. Je choisis de voir chaque expérience comme un enseignement.",
+                relaxation: "Méditation de la gratitude lumineuse. Visualiser une bougie qui représente chaque chose pour laquelle je suis reconnaissant.",
+                habits: [
+                    "Se focaliser sur ce qui manque plutôt que sur ce qui est",
+                    "Négliger de remercier les petites bontés quotidiennes",
+                    "Passer rapidement sur les moments de recueillement"
+                ],
+                sport: "• Yoga restaurateur\n• Marche lente et contemplative\n• Étirements doux avec respiration consciente",
+                times: ["Pour moi : 7h", "Avec mes proches : 6h", "Dans mon cercle : 2h", "Pour ma mission : 5h"]
+            },
+            december: {
+                emoji: "🎄",
+                title: "Décembre 2026 : Célébration & Plénitude",
+                intention: "Célébrer l'année écoulée et entrer dans l'hiver avec un sentiment d'accomplissement et de paix.",
+                objectives: [
+                    "Personnel : Réaliser un rituel de clôture d'année symbolique",
+                    "Famille & proches : Organiser une célébration des petites et grandes victoires familiales",
+                    "Mission : Finaliser l'année en beauté et préparer un repos mérité"
+                ],
+                release: "Je libère tout sentiment d'inachevé. Je reconnais la perfection du chemin parcouru, avec ses hauts et ses bas.",
+                relaxation: "Méditation de la plénitude. Sentir chaque cellule de son corps remplie de la sagesse accumulée pendant l'année.",
+                habits: [
+                    "Se précipiter vers les objectifs de l'année suivante sans clore la présente",
+                    "Minimiser ses accomplissements",
+                    "Négliger les temps de repos et de régénération"
+                ],
+                sport: "• Danses festives et joyeuses\n• Promenades hivernales contemplatives\n• Yoga doux pour intégrer l'année",
+                times: ["Pour moi : 8h", "Avec mes proches : 7h", "Dans mon cercle : 3h", "Pour ma mission : 2h"]
             }
-          }
+        };
+
+        // ========== CORRECTIONS CRITIQUES ==========
+        // 1. Tableau d'ordre des mois
+        const monthOrder = ['february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+        
+        // 2. Mapping des IDs checkbox (correction du problème identifié)
+        const checkboxIds = {
+            'february': 'completeFeb',
+            'march': 'completeMar',
+            'april': 'completeApr',
+            'may': 'completeMay',
+            'june': 'completeJun',
+            'july': 'completeJul',
+            'august': 'completeAug',
+            'september': 'completeSep',
+            'october': 'completeOct',
+            'november': 'completeNov',
+            'december': 'completeDec'
+        };
+
+        // 3. Gestion de la progression
+        let completedMonths = [];
+
+        function loadProgress() {
+            const saved = localStorage.getItem('king2026Progress');
+            if (saved) {
+                completedMonths = JSON.parse(saved);
+                console.log('Progression chargée:', completedMonths);
+            }
         }
-      }
-      
-      console.log('Application initialisée avec succès');
-    }
 
-    // Ajouter l'animation de déverrouillage au CSS
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes unlockEffect {
-        0% { transform: translateY(10px); opacity: 0.7; }
-        100% { transform: translateY(0); opacity: 1; }
-      }
-    `;
-    document.head.appendChild(style);
+        function saveProgress() {
+            localStorage.setItem('king2026Progress', JSON.stringify(completedMonths));
+            console.log('Progression sauvegardée:', completedMonths);
+        }
 
-    // Initialiser au chargement
-    document.addEventListener('DOMContentLoaded', initializeApp);
-  </script>
+        // ========== FONCTION PRINCIPALE CORRIGÉE ==========
+        function completeMonth(monthId) {
+            // Récupère le bon ID de checkbox
+            const checkboxId = checkboxIds[monthId];
+            const checkbox = document.getElementById(checkboxId);
+            
+            console.log('Completing month:', monthId, 'Checkbox ID:', checkboxId, 'Found:', !!checkbox);
+            
+            if (!checkbox) {
+                console.error('Checkbox non trouvée pour:', monthId);
+                return;
+            }
+            
+            if (!checkbox.checked) {
+                console.log('Checkbox non cochée pour:', monthId);
+                return;
+            }
+            
+            // Si le mois n'est pas déjà complété
+            if (!completedMonths.includes(monthId)) {
+                completedMonths.push(monthId);
+                saveProgress();
+                
+                // Effet visuel
+                const wow = document.createElement('div');
+                wow.className = 'wow-effect';
+                document.body.appendChild(wow);
+                setTimeout(() => wow.remove(), 3000);
+                
+                // Marquer le mois comme complété
+                const monthCard = document.getElementById(monthId);
+                if (monthCard) {
+                    monthCard.classList.add('completed');
+                    monthCard.classList.remove('locked'); // IMPORTANT: Retirer locked
+                    const checkLabel = checkbox.nextElementSibling;
+                    if (checkLabel) {
+                        checkLabel.textContent = '✅ Mois complété avec succès';
+                    }
+                    checkbox.disabled = true;
+                }
+                
+                // Déverrouiller le mois suivant (CORRIGÉ)
+                unlockNextMonth(monthId);
+                
+                // Mettre à jour la progression
+                updateProgress();
+                
+                console.log(`Mois ${monthId} complété et sauvegardé.`);
+            }
+        }
+
+        // ========== DÉVERROUILLAGE CORRIGÉ ==========
+        function unlockNextMonth(completedMonthId) {
+            const currentIndex = monthOrder.indexOf(completedMonthId);
+            
+            if (currentIndex !== -1 && currentIndex < monthOrder.length - 1) {
+                const nextMonthId = monthOrder[currentIndex + 1];
+                const nextMonthCard = document.getElementById(nextMonthId);
+                
+                console.log('Tentative de déverrouillage:', nextMonthId, 'Carte trouvée:', !!nextMonthCard);
+                
+                if (nextMonthCard && nextMonthCard.classList.contains('locked')) {
+                    // IMPORTANT: Retirer locked AVANT d'injecter le contenu
+                    nextMonthCard.classList.remove('locked');
+                    // Construire le contenu
+                    buildMonthCard(nextMonthId);
+                    
+                    console.log(`Mois ${nextMonthId} déverrouillé avec succès.`);
+                }
+            }
+        }
+
+        // ========== CONSTRUCTION DES CARTES ==========
+        function buildMonthCard(monthId) {
+            const monthData = monthsData[monthId];
+            if (!monthData) return;
+            
+            const monthCard = document.getElementById(monthId);
+            if (!monthCard) return;
+            
+            // Créer le contenu HTML
+            let objectivesHtml = '';
+            monthData.objectives.forEach(obj => {
+                const parts = obj.split(' : ');
+                if (parts.length === 2) {
+                    objectivesHtml += `<li><strong>${parts[0]}</strong> : ${parts[1]}</li>`;
+                } else {
+                    objectivesHtml += `<li>${obj}</li>`;
+                }
+            });
+            
+            let habitsHtml = '';
+            monthData.habits.forEach(habit => {
+                habitsHtml += `<li>${habit}</li>`;
+            });
+            
+            let timesHtml = '';
+            monthData.times.forEach(time => {
+                timesHtml += `<div class="time-slot">${time}</div>`;
+            });
+            
+            const checkboxId = checkboxIds[monthId];
+            const completionLabel = getCompletionLabel(monthId);
+            
+            monthCard.innerHTML = `
+                <div class="month-title">
+                    <span class="emoji">${monthData.emoji}</span> ${monthData.title}
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-title"><span>🎯</span> Intention mensuelle</div>
+                    <div class="pillar-content">${monthData.intention}</div>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-title"><span>📍</span> Objectifs stratégiques</div>
+                    <ul class="objectives-list">
+                        ${objectivesHtml}
+                    </ul>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-title"><span>🕊️</span> Lâcher-prise</div>
+                    <div class="pillar-content">${monthData.release}</div>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-title"><span>🌀</span> Exercice de relaxation intégré</div>
+                    <div class="relaxation-exercise">
+                        ${monthData.relaxation}
+                    </div>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-title"><span>⚠️</span> Habitudes à observer avec bienveillance</div>
+                    <ul class="habits-list">
+                        ${habitsHtml}
+                    </ul>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-title"><span>💪</span> Mouvement & vitalité</div>
+                    <div class="sport-sequence">${monthData.sport}</div>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-title"><span>⏳</span> Temps sacrés hebdomadaires</div>
+                    <div class="time-block">
+                        ${timesHtml}
+                    </div>
+                </div>
+                
+                <div class="completion-check">
+                    <!-- CORRECTION: IDs cohérents avec le mapping -->
+                    <input type="checkbox" id="${checkboxId}" onchange="completeMonth('${monthId}')">
+                    <label for="${checkboxId}">
+                        ${completionLabel}
+                    </label>
+                </div>
+            `;
+        }
+
+        function getCompletionLabel(monthId) {
+            const labels = {
+                'february': 'J\'ai vécu ce mois avec présence et bienveillance',
+                'march': 'J\'ai honoré ce mois avec régularité et douceur',
+                'april': 'J\'ai cultivé mes ressources avec gratitude',
+                'may': 'J\'ai célébré mes floraisons avec joie',
+                'june': 'J\'ai clarifié ma direction avec lumière',
+                'july': 'J\'ai navigué avec fluidité et lâcher-prise',
+                'august': 'J\'ai pris de la hauteur sur mon parcours',
+                'september': 'J\'ai intégré mes apprentissages avec sagesse',
+                'october': 'J\'ai transformé avec grâce ce qui devait l\'être',
+                'november': 'J\'ai cultivé la gratitude en profondeur',
+                'december': 'J\'ai célébré mon année avec plénitude'
+            };
+            return labels[monthId] || 'J\'ai complété ce mois avec intention';
+        }
+
+        function updateProgress() {
+            const totalMonths = 11;
+            const progress = (completedMonths.length / totalMonths) * 100;
+            const progressFill = document.getElementById('progressFill');
+            const progressPercentage = document.getElementById('progressPercentage');
+            
+            if (progressFill && progressPercentage) {
+                progressFill.style.width = `${progress}%`;
+                progressPercentage.textContent = `${Math.round(progress)}%`;
+            }
+        }
+
+        // ========== INITIALISATION CORRIGÉE ==========
+        function initializeApp() {
+            loadProgress();
+            updateProgress();
+            
+            console.log('Initialisation avec mois complétés:', completedMonths);
+            
+            // Restaurer l'état des mois complétés
+            completedMonths.forEach(monthId => {
+                const monthCard = document.getElementById(monthId);
+                const checkboxId = checkboxIds[monthId];
+                const checkbox = document.getElementById(checkboxId);
+                
+                if (monthCard) {
+                    monthCard.classList.add('completed');
+                    monthCard.classList.remove('locked'); // IMPORTANT
+                }
+                
+                if (checkbox) {
+                    checkbox.checked = true;
+                    checkbox.disabled = true;
+                    const checkLabel = checkbox.nextElementSibling;
+                    if (checkLabel) {
+                        checkLabel.textContent = '✅ Mois complété avec succès';
+                    }
+                }
+            });
+            
+            // Déverrouiller et construire tous les mois qui devraient être déverrouillés
+            let lastCompletedIndex = -1;
+            
+            // Trouver l'index du dernier mois complété
+            completedMonths.forEach(monthId => {
+                const index = monthOrder.indexOf(monthId);
+                if (index > lastCompletedIndex) {
+                    lastCompletedIndex = index;
+                }
+            });
+            
+            // Déverrouiller tous les mois jusqu'au suivant du dernier complété
+            for (let i = 0; i <= Math.min(lastCompletedIndex + 1, monthOrder.length - 1); i++) {
+                const monthId = monthOrder[i];
+                
+                // Février est toujours visible
+                if (monthId === 'february') continue;
+                
+                const card = document.getElementById(monthId);
+                if (card && card.classList.contains('locked')) {
+                    // IMPORTANT: Retirer locked avant construction
+                    card.classList.remove('locked');
+                    buildMonthCard(monthId);
+                    
+                    // Si ce mois est déjà complété, cocher la checkbox
+                    if (completedMonths.includes(monthId)) {
+                        const checkboxId = checkboxIds[monthId];
+                        const checkbox = document.getElementById(checkboxId);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                            checkbox.disabled = true;
+                            const label = checkbox.nextElementSibling;
+                            if (label) {
+                                label.textContent = '✅ Mois complété avec succès';
+                            }
+                        }
+                    }
+                }
+            }
+            
+            console.log('Application initialisée avec succès');
+        }
+
+        // Initialiser l'application au chargement
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
 </body>
 </html>
